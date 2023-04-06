@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<form action="" method="POST" class="card card-body">
+    {% csrf_token %}
+    <label for="formGroupExampleInput" class="form-label">Codigo</label>
+    <input type="number" name="codigo" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el codigo"
+        value="{{ empleados.codigo }}">
+
+    <label for="formGroupExampleInput" class="form-label">nif</label>
+    <input type="text" name="nif" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el nif"
+        value="{{ empleados.nif }}">
+
+    <label for=" formGroupExampleInput" class="form-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el nombre"
+        value="{{ empleados.nombre }}">
+
+    <label for=" formGroupExampleInput" class="form-label">Primer apellido</label>
+    <input type="text" name="apellido1" class="form-control" id="formGroupExampleInput"
+        placeholder="Ingrese el primer apellido" value="{{ empleados.apellido1 }}">
+
+    <label for=" formGroupExampleInput" class="form-label">Segundo apellido</label>
+    <input type="text" name="apellido2" class="form-control" id="formGroupExampleInput"
+        placeholder="Ingrese el segundo apellido" value="{{ empleados.apellido2 }}">
+
+
+    <label for=" formGroupExampleInput" class="form-label">Departamento</label>
+    <select name="departamento" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+        id="formGroupExampleInput" required>
+        <option value="{{ empleados.codigo_departamento.codigo }}">{{ empleados.codigo_departamento.nombre }}</option>
+        {% for depa in departamentos %}
+        {% if empleados.codigo_departamento.codigo != depa.codigo %}
+        <option value="{{ depa.codigo }}">{{ depa.nombre }}</option>
+        {% endif %}
+        {% empty %}
+        <option selected disabled value="">La lista se encuentra vacia</option>
+        {% endfor %}
+        <div class="invalid-feedback">Please select a valid state.</div>
+    </select>
+
+    <button class="btn btn-success">Salve</button>
+    <a href="{% url 'seleccionar empleado' %}" class="btn btn-primary">Salir</a>
+</form>
+{% endblock %}

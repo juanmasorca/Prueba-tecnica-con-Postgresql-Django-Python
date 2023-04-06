@@ -9,6 +9,12 @@ urlpatterns = [
 
     path('agregar_empleado/', views.agregar_empleado, name='agregar empleado'),
 
+    path('seleccionar_empleado/', views.seleccionar_empleado,
+         name='seleccionar empleado'),
+
+    path('seleccionar_empleado/<int:codigo>', views.editar_empleado,
+         name='editar empleado'),
+
     path('eliminar_empleado/', views.vista_eliminar_empleado,
          name='vista eliminar empleado'),
 
@@ -19,6 +25,12 @@ urlpatterns = [
 
     path('agregar_departamento/', views.agregar_departamento,
          name='agregar departamento'),
+
+    path('seleccionar_departamento/', views.seleccionar_departamento,
+         name='seleccionar departamento'),
+
+    path('seleccionar_departamento/<int:codigo>', views.editar_departamento,
+         name='editar departamento'),
 
     path('eliminar_departamento/', views.vista_eliminar_departamento,
          name='vista eliminar departamento'),

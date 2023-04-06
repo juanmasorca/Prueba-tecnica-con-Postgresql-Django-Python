@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<form action="{{ empleado.codigo }}" method="POST" class="card card-body">
+    {% csrf_token %}
+
+    <label for="formGroupExampleInput" class="form-label">Codigo</label>
+
+    <select name="codigo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+        id="formGroupExampleInput" required>
+        <option selected disabled value="">Seleccionar empleado</option>
+        {% for empleado in empleados %}
+        <option value="{{ empleado.codigo }}">{{ empleado.nombre }} {{ empleado.apellido1 }} {{ empleado.apellido2 }}
+        </option>
+        {% empty %}
+        <option selected disabled value="">La lista se encuentra vacia</option>
+        {% endfor %}
+        <div class="invalid-feedback">Please select a valid state.</div>
+
+
+
+    </select>
+    <button class="btn btn-success">Obrener informacion</button>
+
+</form>
+{% endblock %}

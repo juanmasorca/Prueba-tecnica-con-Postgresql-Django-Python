@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<form action="" method="POST" class="card card-body">
+    {% csrf_token %}
+    <label for="formGroupExampleInput" class="form-label">Codigo</label>
+    <input type="number" name="codigo" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el codigo"
+        value="{{ departamentos.codigo }}">
+    <label for="formGroupExampleInput" class="form-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el nombre"
+        value="{{ departamentos.nombre }}">
+    <label for="formGroupExampleInput" class="form-label">Presupuesto</label>
+    <input type="number" name="presupuesto" class="form-control" id="formGroupExampleInput"
+        placeholder="Ingrese el presupuesto" value="{{ departamentos.presupuesto }}">
+
+    <button class="btn btn-success">Salve</button>
+    <a href="{% url 'seleccionar departamento' %}" class="btn btn-primary">Salir</a>
+
+</form>
+{% endblock %}
