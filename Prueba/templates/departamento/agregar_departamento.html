@@ -1,12 +1,16 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<h1>que mas pues</h1>
-<form action="" method="POST">
+<form action="" method="POST" class="card card-body">
     {% csrf_token %}
-    <input type="number" name="codigo" placeholder="Escribir el codigo" maxlength="10">
-    <input type="text" name="nombre" maxlength="100" placeholder="Escribir el nombre">
-    <input type="number" name="presupuesto" placeholder="Escribir el presuspuesto" maxlength="10">
-    <button>Salve</button>
+    <label for="formGroupExampleInput" class="form-label">Codigo</label>
+    <input type="number" name="codigo" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el codigo">
+    <label for="formGroupExampleInput" class="form-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" id="formGroupExampleInput" placeholder="Ingrese el nombre">
+    <label for="formGroupExampleInput" class="form-label">Presupuesto</label>
+    <input type="number" name="presupuesto" class="form-control" id="formGroupExampleInput"
+        placeholder="Ingrese el presupuesto">
+
+    <button class="btn btn-success">Salve</button>
 </form>
 {% endblock %}

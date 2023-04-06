@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+<div class="card card-body">
+    <h1>Eliminar empleados</h1>
+    {% for empleado in empleados %}
+    <div class="card card-body">
+        <h6>Codigo: {{ empleado.codigo }}</span></h6>
+        <h6>nif: {{ empleado.nif }}</span></h6>
+        <h6>Nombre: {{ empleado.nombre }}</span></h6>
+        <h6>Primer apellido: {{ empleado.apellido1 }}</span></h6>
+        <h6>Segundo apellido: {{ empleado.apellido2 }}</span></h6>
+        <h6>Departamento: {{ empleado.codigo_departamento.nombre }}</h6>
+        <form action="{% url 'eliminar empleado' empleado.codigo %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    {% empty %}
+    <h2>La lista se encuentra vacia</h2>
+    {% endfor %}
+</div>
+
+{% endblock %}

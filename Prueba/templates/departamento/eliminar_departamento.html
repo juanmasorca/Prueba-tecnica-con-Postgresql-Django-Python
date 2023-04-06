@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+<div class="card card-body">
+    <h1>Eliminar departamentos</h1>
+    {% for depa in departamentos %}
+    <div class="card card-body">
+
+        <h6>Nombre: {{ depa.nombre }}</span></h6>
+        <h6>Codigo: {{ depa.codigo }}</span></h6>
+        <h6>Presupuesto: {{ depa.presupuesto }}</span></h6>
+        <form action="{% url 'eliminar departamento' depa.codigo %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+    {% empty %}
+    <h2>La lista se encuentra vacia</h2>
+    {% endfor %}
+</div>
+
+{% endblock %}

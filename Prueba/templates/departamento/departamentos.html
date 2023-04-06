@@ -2,9 +2,24 @@
 
 
 {% block content %}
-<h1>Departamentos</h1>
+<div class="container">
+    <div class="row">
+        <div class="card card-body">
+            <form action=""></form>
+            <h1>Departamentos</h1>
 
-{% for depa in departamentos %}
-<h2>{{ depa.nombre }}</h2>
-{% endfor %}
+            {% for depa in departamentos %}
+            <div class="card card-body">
+                <h6>Codigo: {{ depa.codigo }}</h6>
+                <h6>Nombre: {{ depa.nombre }}</h6>
+                <h6>Presupuesto: {{ depa.presupuesto }}</h6>
+            </div>
+
+
+            {% empty %}
+            <h2>La lista se encuentra vacia</h2>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
