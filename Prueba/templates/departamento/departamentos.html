@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+<h1>Departamentos</h1>
+
+{% for depa in departamentos %}
+<h2>{{ depa.nombre }}</h2>
+{% endfor %}
+{% endblock %}
