@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import departamento, Empleado
-import win32api
+
 
 # Create your views here.
 
