@@ -14,7 +14,9 @@
                 <h6>Nombre: {{ empleado.nombre }}</h6>
                 <h6>Primer apellido: {{ empleado.apellido1 }}</h6>
                 <h6>Segundo apellido: {{ empleado.apellido2 }}</h6>
-                <h6>Departamento: {{ empleado.codigo_departamento.nombre }}</h6>
+                <h6 style="color: brown;"> Departamento: <span style="color: black;">
+                        {{ empleado.codigo_departamento.nombre }}</span>
+                </h6>
             </div>
             {% empty %}
             <h2>La lista se encuentra vacia</h2>
