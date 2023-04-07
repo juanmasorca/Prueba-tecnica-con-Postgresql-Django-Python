@@ -73,14 +73,14 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+#postgresql_psycopg2
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prueba_db',
         'USER': 'postgres',
         'PASSWORD': '123456789',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432'
     }
 }

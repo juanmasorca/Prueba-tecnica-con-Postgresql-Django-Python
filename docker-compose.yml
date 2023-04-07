@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456789
+      POSTGRES_DB: prueba_db
+    volumes:
+      #- postgres_data:/c/Program Files/PostgreSQL/14/data
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:1234
+    volumes:
+      - .:/code
+      - static_data:/code/Prueba/static/
+    ports:
+      - "1234:1234"
+    depends_on:
+      - db
+    environment:
+
+      #POSTGRES_HOST: db
+      #POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456789
+      POSTGRES_DB: prueba_db
+      DATABASE_HOST: db
+
+volumes:
+  postgres_data:
+  static_data:

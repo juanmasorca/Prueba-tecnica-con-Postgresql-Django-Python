@@ -10,8 +10,9 @@ def index(request):
 
 
 def departamentos(request):
+    print("----------------------------------------------------------------------------------------------------------------------------------------")
     lista_departamentos = departamento.objects.all()
-
+    print(lista_departamentos)
     return render(request, 'departamento/departamentos.html', {'departamentos': lista_departamentos})
 
 
