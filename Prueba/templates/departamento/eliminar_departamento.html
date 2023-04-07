@@ -3,16 +3,19 @@
 
 {% block content %}
 <div class="card card-body">
-    <h1>Eliminar departamentos</h1>
+    <h1 class="text-center">Eliminar departamentos</h1>
     {% for depa in departamentos %}
     <div class="card card-body">
 
-        <h6>Nombre: {{ depa.nombre }}</span></h6>
-        <h6>Codigo: {{ depa.codigo }}</span></h6>
-        <h6>Presupuesto: {{ depa.presupuesto }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Nombre: <span style="color: black;">{{ depa.nombre }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Codigo: <span style="color: black;">{{ depa.codigo }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Presupuesto: <span style="color: black;">
+                {{ depa.presupuesto }}</span></h6>
         <form action="{% url 'eliminar departamento' depa.codigo %}" method="POST">
             {% csrf_token %}
-            <button class="btn btn-danger">Delete</button>
+            <br>
+            <div class="text-center"><button class="btn btn-danger">Delete</button></div>
+
         </form>
     </div>
     {% empty %}

@@ -6,13 +6,16 @@
     <div class="row">
         <div class="card card-body">
             <form action=""></form>
-            <h1>Departamentos</h1>
+            <h1 class="text-center">Departamentos</h1>
 
             {% for depa in departamentos %}
             <div class="card card-body">
-                <h6>Codigo: {{ depa.codigo }}</h6>
-                <h6>Nombre: {{ depa.nombre }}</h6>
-                <h6>Presupuesto: {{ depa.presupuesto }}</h6>
+                <h6 style="color: brown;" class="text-center">Codigo: <span style="color: black;">{{ depa.codigo }}</h6>
+                </span>
+                <h6 style="color: brown;" class="text-center">Nombre: <span style="color: black;">{{ depa.nombre }}</h6>
+                </span>
+                <h6 style="color: brown;" class="text-center">Presupuesto: <span style="color: black;">
+                        {{ depa.presupuesto }}</h6></span>
             </div>
 
 

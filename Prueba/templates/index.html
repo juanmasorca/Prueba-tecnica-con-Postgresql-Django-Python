@@ -3,13 +3,21 @@
 {% load static %}
 
 {% block content %}
+<div>
+    <h1 class="text-center">PRUEBA DE DESARROLLO COBRANDO BPO</h1>
+    <br>
+    <p>1. Teniendo en cuenta el siguiente modelo elabore un micro servicio para la tabla “empleado” el cual sea capaz de
+        insertar, actualizar, borrar y consultar (CRUD) información utilizando el FrameWork de Django:</p>
+    <br>
+    <div class="text-center">
+        <img src="{% static 'imagen.jpg' %}" alt="1500" width="700">
+    </div>
+    <br>
+    <p>El micro servicio tiene que interactuar con una DB de tipo POSTGRESQL, además de esto, es un plus si realiza el
+        montaje por medio de Docker, aunque no es completamente necesario, su micro servicio tiene que estar disponible
+        por
+        el puerto 1234 además de tener las indicaciones pertinentes de uso.!</p>
+</div>
 
-<h1>PRUEBA DE DESARROLLO COBRANDO BPO</h1>
-<p>1. Teniendo en cuenta el siguiente modelo elabore un micro servicio para la tabla “empleado” el cual sea capaz de
-    insertar, actualizar, borrar y consultar (CRUD) información utilizando el FrameWork de Django:</p>
-<img src="{% static 'imagen.jpg' %}" alt="" width="700">
-<p>El micro servicio tiene que interactuar con una DB de tipo POSTGRESQL, además de esto, es un plus si realiza el
-    montaje por medio de Docker, aunque no es completamente necesario, su micro servicio tiene que estar disponible por
-    el puerto 1234 además de tener las indicaciones pertinentes de uso.!</p>
 
 {% endblock %}
