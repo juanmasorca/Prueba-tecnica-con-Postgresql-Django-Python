@@ -1,11 +1,11 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<h1>Seleccionar Empleado</h1>
+<h1 class="text-center">Seleccionar Empleado</h1>
 <form action="{{ empleado.codigo }}" method="POST" class="card card-body">
     {% csrf_token %}
 
-    <label for="formGroupExampleInput" class="form-label">Codigo</label>
+    <h6 class="text-center"><label for="formGroupExampleInput" class="form-label"><strong>Codigo</strong></label></h6>
 
     <select name="codigo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
         id="formGroupExampleInput" required>
@@ -21,6 +21,7 @@
 
 
     </select>
+    <br>
     <button class="btn btn-success">Obrener informacion</button>
 
 </form>

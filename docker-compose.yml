@@ -1,27 +1,40 @@
+# Define la versión de Docker Compose que se va a utilizar
 version: "3.9"
-
+# Define los servicios que se ejecutarán en contenedores
 services:
+  # Define el servicio de la base de datos Postgres
   db:
+    # Establece la imagen de Postgres a utilizar
     image: postgres
+    # Define variables de entorno para la base de datos
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456789
       POSTGRES_DB: prueba_db
+    # Crea un volumen para persistir los datos de la base de datos
     volumes:
-      #- postgres_data:/c/Program Files/PostgreSQL/14/data
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/c/Program Files/PostgreSQL/14/data
+      #- postgres_data:/var/lib/postgresql/data
+      # Mapea el puerto 5432 de la base de datos al puerto 5432 del host
     ports:
       - "5432:5432"
+  # Define el servicio web
   web:
+    # Construye una imagen de Docker a partir del Dockerfile en el directorio actual
     build: .
+    # Define el comando para ejecutar la aplicación web
     command: python manage.py runserver 0.0.0.0:1234
+    # Crea volúmenes para compartir datos entre el host y el contenedor
     volumes:
       - .:/code
       - static_data:/code/Prueba/static/
+    # Mapea el puerto 1234 del contenedor al puerto 1234 del host
     ports:
       - "1234:1234"
+    # Establece que este servicio depende del servicio de la base de datos
     depends_on:
       - db
+    # Define variables de entorno para el servicio web
     environment:
 
       #POSTGRES_HOST: db
@@ -31,6 +44,7 @@ services:
       POSTGRES_DB: prueba_db
       DATABASE_HOST: db
 
+# Define volúmenes para persistir datos
 volumes:
   postgres_data:
   static_data:

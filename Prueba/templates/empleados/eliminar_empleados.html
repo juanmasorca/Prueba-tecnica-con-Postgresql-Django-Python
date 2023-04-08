@@ -3,18 +3,23 @@
 
 {% block content %}
 <div class="card card-body">
-    <h1>Eliminar empleados</h1>
+    <h1 class="text-center">Eliminar empleados</h1>
     {% for empleado in empleados %}
     <div class="card card-body">
-        <h6>Codigo: {{ empleado.codigo }}</span></h6>
-        <h6>nif: {{ empleado.nif }}</span></h6>
-        <h6>Nombre: {{ empleado.nombre }}</span></h6>
-        <h6>Primer apellido: {{ empleado.apellido1 }}</span></h6>
-        <h6>Segundo apellido: {{ empleado.apellido2 }}</span></h6>
-        <h6>Departamento: {{ empleado.codigo_departamento.nombre }}</h6>
+        <h6 style="color: brown;" class="text-center">Codigo: <span style=" color: black;">{{ empleado.codigo }}</span>
+        </h6>
+        <h6 style="color: brown;" class="text-center">NIF: <span style=" color: black;">{{ empleado.nif }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Nombre: <span style=" color: black;">{{ empleado.nombre }}</span>
+        </h6>
+        <h6 style="color: brown;" class="text-center">Primer apellido: <span style=" color: black;">
+                {{ empleado.apellido1 }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Segundo apellido: <span style=" color: black;">
+                {{ empleado.apellido2 }}</span></h6>
+        <h6 style="color: brown;" class="text-center">Departamento: <span style=" color: black;">
+                {{ empleado.codigo_departamento.nombre }}</h6>
         <form action="{% url 'eliminar empleado' empleado.codigo %}" method="POST">
             {% csrf_token %}
-            <button class="btn btn-danger">Delete</button>
+            <div class="text-center"><button class="btn btn-danger">Delete</button></div>
         </form>
     </div>
     {% empty %}
